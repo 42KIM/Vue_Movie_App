@@ -52,7 +52,7 @@ export default {
         commit('toggleLoading');
         commit('increasePageNumber');
       } else {
-        router.push('noresult');
+        router.replace('noresult');
         commit('toggleLoading');
       }
     },
