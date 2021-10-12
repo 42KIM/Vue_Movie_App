@@ -85,7 +85,9 @@ export default {
 
 <style lang="scss" scoped>
 .main__items-wrapper {
+  width: 100%;
   display: flex;
+  align-items: flex-start;
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 50px;

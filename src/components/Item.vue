@@ -55,19 +55,26 @@ export default {
     transform: rotate(2deg);
   }
   .item__poster-wrapper {
+    position: relative;
+    padding-top: 130%;
     width: 100%;
-    min-height: 90%;
     overflow: hidden;
     .item__poster {
+      position: absolute;
       width: 100%;
       height: 100%;
+      top: 0;
+      left: 0;
+      // width: 100%;
+      // height: 100%;
       object-fit: cover;
     }
   }
   .item__info {
     background-color: $color-main-theme;
     width: 100%;
-    min-height: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

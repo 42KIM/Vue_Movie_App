@@ -3,9 +3,13 @@ const { API_ENDPOINT, API_KEY } = process.env;
 const axios = require('axios');
 
 exports.handler = async function (request) {
-    const params = JSON.parse(request.body);
+    const options = JSON.parse(request.body);
     const { data } = await axios({
-      url: `${API_ENDPOINT}?apikey=${API_KEY}&${params}`
+      url: `${API_ENDPOINT}`,
+      params: {
+        apikey: API_KEY,
+        ...options
+      }
     });
     return {
         statusCode: 200,

@@ -43,11 +43,11 @@ export default {
   actions: {
     async getMovies({ state, commit }, keyword) {
       commit('toggleLoading');
-      const res = await _request(`s=${keyword}&page=${state.pageNumber}`);
-      if (res.Response === 'True') {
+      const { Response, Search, totalResults } = await _request({ s: keyword, page: state.pageNumber });
+      if (Response === 'True') {
         await commit('setState', {
-          searchResults: res.Search,
-          totalResults: parseInt(res.totalResults, 10)
+          searchResults: Search,
+          totalResults: parseInt(totalResults, 10)
         });
         commit('toggleLoading');
         commit('increasePageNumber');
@@ -58,7 +58,7 @@ export default {
     },
     async getDetails({ commit, dispatch }, id) {
       commit('toggleLoading');
-      const detailResult = await _request(`i=${id}&plot=full`);
+      const detailResult = await _request({ i: id, plot: 'full' });
       await commit('setState', {
         detailResult
       });
